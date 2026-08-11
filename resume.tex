@@ -1,274 +1,391 @@
-%-------------------------
-% Resume in Latex
-% Author : Jake Gutierrez
-% Based off of: https://github.com/sb2nov/resume
-% License : MIT
-%------------------------
-
-\documentclass[letterpaper,11pt]{article}
-
-\usepackage{latexsym}
-\usepackage[empty]{fullpage}
-\usepackage{titlesec}
-\usepackage{marvosym}
-\usepackage[usenames,dvipsnames]{color}
-\usepackage{verbatim}
-\usepackage{enumitem}
-\usepackage[hidelinks]{hyperref}
-\usepackage{fancyhdr}
-\usepackage[english]{babel}
+\documentclass[10pt]{article}
+%-----------------------------------------------------------
+% Packages
+%-----------------------------------------------------------
+\usepackage[letterpaper,margin=0.22in]{geometry}
+\usepackage{array}
 \usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{palatino}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
 \usepackage{fontawesome5}
-\usepackage{multicol}
-\setlength{\multicolsep}{-3.0pt}
-\setlength{\columnsep}{-1pt}
+
 \input{glyphtounicode}
-
-
-%----------FONT OPTIONS----------
-% sans-serif
-% \usepackage[sfdefault]{FiraSans}
-% \usepackage[sfdefault]{roboto}
-% \usepackage[sfdefault]{noto-sans}
-% \usepackage[default]{sourcesanspro}
-
-% serif
-% \usepackage{CormorantGaramond}
-% \usepackage{charter}
-
-
-\pagestyle{fancy}
-\fancyhf{} % clear all header and footer fields
-\fancyfoot{}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-
-% Adjust margins
-\addtolength{\oddsidemargin}{-0.6in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1.19in}
-\addtolength{\topmargin}{-.7in}
-\addtolength{\textheight}{1.4in}
-
-\urlstyle{same}
-
-\raggedbottom
-\raggedright
-\setlength{\tabcolsep}{0in}
-
-% Sections formatting
-\titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large\bfseries
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
-
-% Ensure that generate pdf is machine readable/ATS parsable
 \pdfgentounicode=1
 
-%-------------------------
-% Custom commands
-\newcommand{\resumeItem}[1]{
-  \item\small{
-    {#1 \vspace{-2pt}}
-  }
+%-----------------------------------------------------------
+% Colors
+%-----------------------------------------------------------
+\definecolor{boxgray}{gray}{0.88}
+\definecolor{bordergray}{gray}{0.55}
+
+%-----------------------------------------------------------
+% Page setup
+%-----------------------------------------------------------
+\raggedbottom
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{0pt}
+\pagestyle{empty}
+\linespread{1.01}
+
+%-----------------------------------------------------------
+% Box settings
+%-----------------------------------------------------------
+\setlength{\fboxrule}{0.5pt}
+\setlength{\fboxsep}{3pt}
+
+%-----------------------------------------------------------
+% Section heading
+%-----------------------------------------------------------
+\newcommand{\sectionbox}[1]{
+\noindent
+\fcolorbox{bordergray}{boxgray}{
+\parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}{
+\centering
+\textbf{\small #1}
+}
+}
 }
 
-\newcommand{\classesList}[4]{
-    \item\small{
-        {#1 #2 #3 #4 \vspace{-2pt}}
-  }
+%-----------------------------------------------------------
+% Content box
+%-----------------------------------------------------------
+\newcommand{\contentbox}[1]{
+\noindent
+\fcolorbox{bordergray}{white}{
+\parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}{
+#1
+}
+}
 }
 
-\newcommand{\resumeSubheading}[4]{
-  \vspace{-2pt}\item
-    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & \textbf{\small #2} \\
-      \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-7pt}
+%-----------------------------------------------------------
+% Experience / project heading box
+%-----------------------------------------------------------
+\newcommand{\experiencebox}[2]{
+\noindent
+\fcolorbox{bordergray}{white}{
+\parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}{
+\textbf{#1}
+\hfill
+\textbf{#2}
+}
+}
 }
 
-\newcommand{\resumeSubSubheading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textit{\small#1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-7pt}
+%-----------------------------------------------------------
+% Sub-bullets
+%-----------------------------------------------------------
+\newenvironment{subbullets}
+{
+\fontsize{10}{11.3}\selectfont
+\begin{itemize}[
+leftmargin=0.13in,
+labelsep=0.025in,
+itemsep=0.5pt,
+topsep=0pt,
+parsep=0pt,
+partopsep=0pt
+]
+}
+{
+\end{itemize}
 }
 
-\newcommand{\resumeProjectHeading}[2]{
-    \item
-    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
-      \small#1 & \textbf{\small #2}\\
-    \end{tabular*}\vspace{-7pt}
-}
+\renewcommand{\labelitemii}{$\circ$}
 
-\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
-
-\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
-\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
-
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
-
-%-------------------------------------------
-%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+%-----------------------------------------------------------
+% Document
+%-----------------------------------------------------------
 \begin{document}
 
-%----------HEADING----------
-
+%===========================================================
+% HEADER
+%===========================================================
+\noindent
+\fcolorbox{bordergray}{white}{
+\parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}{
 \begin{center}
-    \vspace{-90pt}
-    {\Huge \scshape Siddhant Dembi} \\
-    % \vspace{42pt}
-        \href{https://dembi.xyz/}{\raisebox{-0.2\height}\faUser\ 
-        \underline{\textcolor{blue}{dembi.xyz}}} 
-        \href{mailto:siddhantdembi@gmail.com}{\raisebox{-0.2\height}\faEnvelope\  \underline{\textcolor{blue}{siddhantdembi@gmail.com}}} 
-        \href{https://www.linkedin.com/in/siddhantdembi}{\raisebox{-0.2\height}\faLinkedin\ \underline{\textcolor{blue}{/siddhantdembi}}} 
-        \href{https://github.com/SiddhantDembi}{\raisebox{-0.2\height}\faGithub\ \underline{\textcolor{blue}{/siddhantdembi}}} 
-        \href{tel:+91 8850003687}{\raisebox{-0.2\height}\faPhone\  \underline{\textcolor{blue}{+91 8850003687}}} 
-        \href{https://www.google.com/maps/search/?api=1&query=Mumbai}{\raisebox{-0.2\height}{\faHome}\  \underline{\textcolor{blue}{Mumbai}}}
-    \vspace{-10pt}
+{\LARGE \textbf{SIDDHANT DEMBI}}
+
+\vspace{5pt}
+
+\small
+\faEnvelope\ 
+\textcolor{blue}{\href{mailto:siddhantdembi@gmail.com}{siddhantdembi@gmail.com}}
+\quad
+\faPhone\ 
+\textcolor{blue}{\href{tel:+918850003687}{+91 8850003687}}
+\quad
+\faGithub\ 
+\textcolor{blue}{\href{https://github.com/siddhantdembi}{/siddhantdembi}}
+\quad
+\faLinkedin\ 
+\textcolor{blue}{\href{https://www.linkedin.com/in/siddhantdembi}{/siddhantdembi}}
+\quad
+\faTwitter\ 
+\textcolor{blue}{\href{https://twitter.com/siddhantdembi}{/siddhantdembi}}
+\quad
+\faMapMarker\ Mumbai, India
+
 \end{center}
+}
+}
+\vspace{3pt}
 
+%===========================================================
+% EDUCATION
+%===========================================================
 
-%-----------EDUCATION-----------
-\section{Education}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {Bachelor of Engineering in Information Technology (University of Mumbai)}{\textit{2025}}{Thadomal Shahani Engineering College}
-      {8.02 CGPA}
-  \resumeSubHeadingListEnd
-  \vspace{-10pt}
+\sectionbox{EDUCATION}
 
-%-----------EXPERIENCE-----------
-\section{Professional Experience}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {Ford Motors}{\textit{June 2024 to July 2024}}
-      {Frontend Developer Intern}{Chennai (2 Months Onsite)}
-      \resumeItemListStart
-        \resumeItem{Developed a 3D car configurator with \textbf{Three.js} and \textbf{Next.js}, supporting \textbf{450,000} unique configurations}
-        \resumeItem{Optimized state management with \textbf{Custom Hooks} and \textbf{Context API}; boosted speed by \textbf{30\%} and cut bugs by \textbf{20\%.}}
-        \resumeItem{Designed responsive and aesthetically pleasing UI with \textbf{Tailwind CSS}, and manipulated 3D models using \textbf{Blender}.}
-        \resumeItem{Containerized the project with \textbf{Docker}, ensuring consistent functionality and reducing deployment issues by \textbf{40\%.}}
-      \resumeItemListEnd
-    \vspace{-3pt}
+% \vspace{3pt}
 
-    \resumeSubheading
-      {Entelligentsia}{\textit{December 2023 to December 2023}}
-      {Backend Developer Intern}{Pune (1 Month Remote)}
-      \resumeItemListStart
-        \resumeItem{Built \textbf{Serverless} APIs with \textbf{AWS Lambda} in \textbf{Python}, integrated with \textbf{DynamoDB}, deploying \textbf{5} APIs using \textbf{2} tables.}
-        \vspace{-12pt}
-        \resumeItem{Set up \textbf{JWT} authentication, used \textbf{Regex} for validation across \textbf{5} endpoints, and utilized \textbf{YAML} with \textbf{Serverless}.}
-        \resumeItem{Created \textbf{RESTful APIs} and achieved \textbf{90\%} test coverage with \textbf{Unit Testing}.}
-      \resumeItemListEnd
-    \vspace{-3pt}
+\renewcommand{\arraystretch}{1.35}
+\setlength{\tabcolsep}{6pt}
 
-    \resumeSubheading
-      {Decimal Point Analytics}{\textit{May 2023 to July 2023}}
-      {Research Analyst Intern}{Mumbai (2 Months Remote)}
-      \resumeItemListStart
-        \resumeItem{Utilized \textbf{Streamlit} for web applications to automate Data Cleaning, reducing preparation time by \textbf{30\%}.}
-        \resumeItem{Completed a Coursera course on \textbf{PySpark}, used it with \textbf{Databricks} to clean CSV data, reducing prep time by \textbf{30\%.}}
-        \resumeItem{Explored \textbf{Milvus Vector Database}, implemented code samples, and presented the knowledge to \textbf{10} team members.}
-      \resumeItemListEnd
+\begin{tabularx}{\textwidth}{
+|>{\raggedright\arraybackslash}p{1.65in}
+|>{\raggedright\arraybackslash}X
+|>{\centering\arraybackslash}p{0.60in}
+|>{\centering\arraybackslash}p{0.80in}|
+}
+\hline
 
-  \resumeSubHeadingListEnd
-\vspace{-12pt}
+% \textbf{Course}
+% &
+% \textbf{School / College / University}
+% &
+% \textbf{Year}
+% &
+% \textbf{CGPA / \%}
+% \\
+% \hline
 
+Bachelor of Engineering in Information Technology
+&
+Thadomal Shahani Engineering College, University of Mumbai
+&
+2025
+&
+8.09 CGPA
+\\
+\hline
 
-%-----------TECHNICAL SKILLS-----------
-\section{Technical Skills}
-\begin{itemize}[leftmargin=0.15in, label={\textbullet}]
-    \item \textbf{Programming Languages:} Python, Javascript, Typescript.
-    \vspace{-8pt}
-    \item \textbf{Web Development:} {React.js, Next.js, Three.js, Flask, Vercel, Render.}
-    \vspace{-8pt}
-    \item \textbf{Developer Tools:} Git, Github, Postman, AWS (EC2, S3, Lambda), Linux Bash, Docker.
-    \vspace{-8pt}
-    \item \textbf{Analytics:} Pandas, PySpark, Matplotlib, Numpy, Excel, PowerBI.
-    \vspace{-8pt}
-    \item \textbf{Frameworks/Libraries:} Serverless, Streamlit, Unittest, Regex.
-    \vspace{-8pt}
-    \item \textbf{Databases:} MySQL, SQLite, MongoDB, DynamoDB.
-    \vspace{-8pt}
-    \item \textbf{Networking and Homelab:} Port Forwarding, DHCP reservation, Custom DNS Configuration, Nmap, SSH, Crontab, Raspberrypi, Pihole, CasaOS, Portainer, Jellyfin, Nextcloud, Samba NAS.
-    \vspace{-8pt}
-    \item \textbf{Design:} Adobe Photoshop, Adobe Illustrator, Adobe AfterEffects, Adobe Premiere Pro, Blender, Canva.
-\end{itemize}
-\vspace{-15pt}
+\end{tabularx}
 
+\vspace{5pt}
 
+%===========================================================
+% SKILLS
+%===========================================================
 
-%-----------PROJECTS-----------
-\section{Projects \href{https://dembi.xyz/project}{\textcolor{blue}{(Other Projects)}}}
+\sectionbox{SKILLS}
 
-\vspace{-8pt}
-\resumeSubHeadingListStart
+% \vspace{3pt}
 
-    \resumeProjectHeading
-    {\textbf{3D Car Configurator} $|$ \emph{Next.js, Three.js TailwindCSS, Blender, Docker}}{\textit{June 2024}}
-    \resumeItemListStart
-        \resumeItem{
-            Developed a car customization app with \textbf{Next.js} and \textbf{Three.js}, allowing users to adjust body color, seats, interior, glass type, steering wheel, tires, backlights, and tailwing. The 3D model renders changes live.
-        }
-        \vspace{-2pt}
-        \resumeItem{
-             \href{https://3d-car-configurator-beta.vercel.app/}{\textcolor{blue}{\underline{Live Deployment}}}
-             \hspace{20pt}
-             \href{https://github.com/SiddhantDembi/3d-car-configurator}{\textcolor{blue}{\underline{Source Code}}}
-        }
-        
-    \resumeItemListEnd 
-    \vspace{-16pt}
-          
-    \resumeProjectHeading
-    {\textbf{Data Cleaner and Timestamp Analysis} $|$ \emph{Python (Streamlit)}}{\textit{February 2024}}
-    \resumeItemListStart
-        \resumeItem{
-            Created a tool with a user-friendly interface for cleaning and processing tabular data (CSV, XLS, XLSX). It allows users to \textbf{replace null values, remove duplicates, handle missing values, convert to lowercase, delete columns, sort columns, and capitalize columns.}}
-        }
-        \resumeItem{
-            Developed a Timestamp Management app enabling users to securely manage timestamp entries in a \textbf{MySQL} database. Features include saving date and time, deleting the latest entry, and viewing previous entries.
-        }
-        \vspace{-2pt}
-        \resumeItem{
-        \href{https://webproject.streamlit.app/}{\textcolor{blue}{\underline{Live Deployment}}}
-        \hspace{20pt}
-             \href{https://github.com/SiddhantDembi/streamlit-projects}{\textcolor{blue}{\underline{Source Code}}}
-        }
-       
-    \resumeItemListEnd
-    \vspace{-3pt}
-\resumeSubHeadingListEnd
+\renewcommand{\arraystretch}{1.25}
+\setlength{\tabcolsep}{6pt}
 
+\begin{tabularx}{\textwidth}{
+|>{\raggedright\arraybackslash}p{1.55in}
+|>{\raggedright\arraybackslash}X|
+}
+\hline
 
+\textbf{Cloud \& DevOps}
+&
+AWS (EC2, S3, Lambda, DynamoDB, Bedrock), Azure DevOps, Docker, Git, CI/CD, GitHub Actions, Linux, Jenkins, Salesforce, Copado, Scripting, Kubernetes (K3s)
+\\
+\hline
 
+\textbf{Infrastructure}
+&
+Prometheus, Grafana, Proxmox, TrueNAS, Cloudflare, WireGuard, Mailcow, Unbound
+\\
+\hline
 
-%-----------INVOLVEMENT---------------
-\section{Extracurricular}
-\resumeSubHeadingListStart
+\textbf{AI \& Automation}
+&
+Ollama, OpenWebUI, Hermes Agent, OpenClaw, Local LLMs, N8N, Stable Diffusion
+\\
+\hline
 
-    \resumeSubheading
-    {TSEC Hackathon}{\textit{October 2023}}
-    {24 Hour Hackathon}{Thadomal Shahani Engineering College}
-    \vspace{-3pt}
+\textbf{Languages}
+&
+Python, JavaScript, TypeScript, SQL, Bash, Shell Scripting, YAML, HTML, CSS
+\\
+\hline
 
-    \resumeSubheading
-    {SFIT Hackathon}{\textit{March 2023}}
-    {24 Hour Hackathon}{St. Francis Institute of Technology}
-    \vspace{-3pt}
+\end{tabularx}
 
-    \resumeSubheading
-    {IETE-TSEC}{\textit{July 2022 to May 2023}}
-    {Junior Committee Member}{Design Team}
-    \resumeItemListStart
-    \resumeItemListEnd
-    \vspace{5pt}
-    \textbf{Interests and Hobbies:} Fitness, Photography, Travelling, Music
+\vspace{5pt}
 
-\resumeSubHeadingListEnd
+%===========================================================
+% EXPERIENCE
+%===========================================================
+
+\sectionbox{EXPERIENCE}
+
+% \vspace{3pt}
+
+%-----------------------------------------------------------
+% Deloitte
+%-----------------------------------------------------------
+
+\experiencebox
+{DevOps Engineer, Analyst | Deloitte USI, Mumbai | Full-time}
+{Sept'25 -- Present}
+\vspace{-2pt}
+\begin{subbullets}
+
+\item Implemented an \textbf{AWS Bedrock AI agent} using Python and Lambda to analyse \textbf{40+} weekly GitHub PRs and classify their risk levels
+
+\item Built two \textbf{Azure DevOps YAML CI/CD pipelines} for Salesforce validation and deployment using the GitFlow branching strategy
+
+\item Managed \textbf{CI/CD pipelines and Salesforce deployments} using \textbf{Copado}, overseeing release operations across \textbf{12} project pods
+
+\item Developed automated \textbf{CI/CD pipelines} connecting \textbf{GitHub Actions and Jira} to auto-create branches upon story status transitions
+
+\item Managed daily \textbf{Salesforce delta deployments} using \textbf{Jenkins and Bitbucket}, ensuring consistent and reliable production releases
+
+\end{subbullets}
+
+\vspace{3pt}
+
+%-----------------------------------------------------------
+% Ford
+%-----------------------------------------------------------
+\experiencebox
+{Software Development Engineer | Ford Motor Company, Chennai | Internship}
+{\href{https://car.dembi.xyz}{\textcolor{blue}{[Demo]}} \quad Jun'24 -- Jul'24}
+\vspace{-2pt}
+\begin{subbullets}
+
+\item Developed 3D car configurator using \textbf{Three.js and Next.js}, supporting \textbf{450K+ configurations} with responsive UI via TailwindCSS
+
+\item Optimized complex 3D models in \textbf{Blender}, ensuring seamless integration and rendering in the interactive web application
+
+\item Containerized application with \textbf{Docker}, reducing deployment issues by \textbf{40\%} and ensuring consistency across environments
+
+\end{subbullets}
+\vspace{3pt}
+
+%-----------------------------------------------------------
+% Entelligentsia
+%-----------------------------------------------------------
+
+\experiencebox
+{Software Development Engineer | Entelligentsia, Pune | Internship}
+{Dec'23 -- Dec'23}
+\vspace{-2pt}
+\begin{subbullets}
+
+\item Created \textbf{5 serverless REST APIs} using \textbf{AWS Lambda} and Python, integrated with \textbf{DynamoDB} for scalable backend services
+
+\item Set up \textbf{JWT authentication}, used Regex for validation across 5 endpoints, and configured YAML with \textbf{Serverless Framework}
+
+\item Ensured \textbf{100\% endpoint coverage} by testing AWS Lambda functions using \textbf{Postman and unit tests}, improving reliability
+
+\end{subbullets}
+
+\vspace{3pt}
+
+%-----------------------------------------------------------
+% Decimal Point Analytics
+%-----------------------------------------------------------
+
+\experiencebox
+{Data Analyst | Decimal Point Analytics, Mumbai | Internship}
+{\href{https://streamlit.dembi.xyz}{\textcolor{blue}{[Demo]}} \quad May'23 -- Jul'23}
+
+\vspace{-2pt}
+\begin{subbullets}
+
+\item Reduced data preparation time by \textbf{50\%} by developing \textbf{Streamlit applications in Python}, automating repetitive data cleaning tasks
+
+\item Achieved \textbf{30\% faster CSV and Excel data cleaning} using \textbf{Databricks with PySpark}, improving overall workflow efficiency
+
+\item Obtained technical experience with \textbf{Milvus} by working through documentation and applying concepts to sample datasets
+
+\end{subbullets}
+
+\vspace{3pt}
+
+%===========================================================
+% PROJECTS
+%===========================================================
+
+\sectionbox{PROJECTS}
+
+% \vspace{3pt}
+
+%-----------------------------------------------------------
+% Project 1: Proxmox Homelab Infrastructure
+%-----------------------------------------------------------
+
+\experiencebox
+{Proxmox Homelab Infrastructure}
+{\href{https://docs.dembi.xyz/homelab/proxmox}{\textcolor{blue}{[Link]}}}
+{}
+\vspace{-2pt}
+\begin{subbullets}
+
+\item Built and maintained \textbf{three on-premises server nodes} for self-hosted services, AI experimentation and infrastructure development
+
+\item Architected \textbf{100+ containers and 10+ VMs}, and ran a three-node \textbf{Kubernetes cluster using K3s}: one control plane and two workers
+
+\item Leveraged \textbf{Cloudflare Tunnel} as a reverse proxy and managed DNS records through Cloudflare for secure service exposure
+
+\item Established \textbf{AdGuard Home with Unbound} for upstream DNS resolution and \textbf{WireGuard VPN} for secure remote network access
+
+\end{subbullets}
+
+\vspace{3pt}
+
+%-----------------------------------------------------------
+% Project 2: Local AI & LLM Automation Platform
+%-----------------------------------------------------------
+
+\experiencebox
+{Local AI \& LLM Automation Platform}
+{}
+\vspace{-2pt}
+\begin{subbullets}
+
+\item Set up a dedicated AI VM with \textbf{GPU passthrough}, running \textbf{Ollama and OpenWebUI} for local inference with open-source LLMs
+
+\item Configured \textbf{Hermes Agent} with local \textbf{Qwen and Gemma MoE models} for autonomous workflows with Telegram integration
+
+\item Used \textbf{Prometheus and Grafana} to monitor GPU memory usage and performance metrics of the dedicated AI VM
+
+\item Deployed \textbf{N8N} for workflow automation and \textbf{Stable Diffusion} for experimenting with local image generation
+
+\end{subbullets}
+
+\vspace{3pt}
+
+%-----------------------------------------------------------
+% Project 3: Infrastructure Monitoring & Backup System
+%-----------------------------------------------------------
+
+\experiencebox
+{Infrastructure Monitoring \& Backup System}
+{}
+\vspace{-2pt}
+\begin{subbullets}
+
+\item Implemented a \textbf{3-2-1 backup strategy} with daily scheduled snapshots for VMs and data, ensuring data integrity and recovery
+
+\item Centralized VM resource monitoring through \textbf{Beszel} with \textbf{SMTP alerts via a local mail server} for disk-space thresholds
+
+\item Monitored real-time resource utilization, processes and system activity across individual virtual machines using \textbf{Glances}
+
+\end{subbullets}
+
+\vspace{3pt}
+
 \end{document}
