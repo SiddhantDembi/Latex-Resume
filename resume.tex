@@ -1,4 +1,5 @@
 \documentclass[10pt]{article}
+
 %-----------------------------------------------------------
 % Packages
 %-----------------------------------------------------------
@@ -23,7 +24,7 @@
 \definecolor{bordergray}{gray}{0.55}
 
 %-----------------------------------------------------------
-% Page setup
+% Page Setup
 %-----------------------------------------------------------
 \raggedbottom
 \setlength{\parindent}{0pt}
@@ -32,67 +33,67 @@
 \linespread{1.01}
 
 %-----------------------------------------------------------
-% Box settings
+% Box Settings
 %-----------------------------------------------------------
 \setlength{\fboxrule}{0.5pt}
 \setlength{\fboxsep}{3pt}
 
 %-----------------------------------------------------------
-% Section heading
+% Section Heading
 %-----------------------------------------------------------
 \newcommand{\sectionbox}[1]{
-\noindent
-\fcolorbox{bordergray}{boxgray}{
-\parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}{
-\centering
-\textbf{\small #1}
-}
-}
+    \noindent
+    \fcolorbox{bordergray}{boxgray}{
+        \parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}{
+            \centering
+            \textbf{\small #1}
+        }
+    }
 }
 
 %-----------------------------------------------------------
-% Content box
+% Content Box
 %-----------------------------------------------------------
 \newcommand{\contentbox}[1]{
-\noindent
-\fcolorbox{bordergray}{white}{
-\parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}{
-#1
-}
-}
+    \noindent
+    \fcolorbox{bordergray}{white}{
+        \parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}{
+            #1
+        }
+    }
 }
 
 %-----------------------------------------------------------
-% Experience / project heading box
+% Experience / Project Heading Box
 %-----------------------------------------------------------
 \newcommand{\experiencebox}[2]{
-\noindent
-\fcolorbox{bordergray}{white}{
-\parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}{
-\textbf{#1}
-\hfill
-\textbf{#2}
-}
-}
+    \noindent
+    \fcolorbox{bordergray}{white}{
+        \parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}{
+            \textbf{#1}
+            \hfill
+            \textbf{#2}
+        }
+    }
 }
 
 %-----------------------------------------------------------
-% Sub-bullets
+% Sub-Bullets
 %-----------------------------------------------------------
 \newenvironment{subbullets}
 {
-\fontsize{10}{11.3}\selectfont
-\begin{itemize}[
-leftmargin=0.13in,
-labelsep=0.025in,
-itemsep=0.5pt,
-topsep=0pt,
-parsep=0pt,
-partopsep=0pt
-]
+    \fontsize{10}{11.3}\selectfont
+    \begin{itemize}[
+        leftmargin=0.13in,
+        labelsep=0.025in,
+        itemsep=0.5pt,
+        topsep=0pt,
+        parsep=0pt,
+        partopsep=0pt
+    ]
 }
 {
-\end{itemize}
+    \end{itemize}
 }
 
 \renewcommand{\labelitemii}{$\circ$}
@@ -105,35 +106,50 @@ partopsep=0pt
 %===========================================================
 % HEADER
 %===========================================================
+
 \noindent
 \fcolorbox{bordergray}{white}{
-\parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}{
-\begin{center}
-{\LARGE \textbf{SIDDHANT DEMBI}}
+    \parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}{
+        \begin{center}
+            \vspace{-5pt}
 
-\vspace{5pt}
+            {\LARGE \textbf{SIDDHANT DEMBI}}
 
-\small
-\faEnvelope\ 
-\textcolor{blue}{\href{mailto:siddhantdembi@gmail.com}{siddhantdembi@gmail.com}}
-\quad
-\faPhone\ 
-\textcolor{blue}{\href{tel:+918850003687}{+91 8850003687}}
-\quad
-\faGithub\ 
-\textcolor{blue}{\href{https://github.com/siddhantdembi}{/siddhantdembi}}
-\quad
-\faLinkedin\ 
-\textcolor{blue}{\href{https://www.linkedin.com/in/siddhantdembi}{/siddhantdembi}}
-\quad
-\faTwitter\ 
-\textcolor{blue}{\href{https://twitter.com/siddhantdembi}{/siddhantdembi}}
-\quad
-\faMapMarker\ Mumbai, India
+            \vspace{3pt}
 
-\end{center}
+            \small
+            \faEnvelope\
+            \textcolor{blue}{
+                \href{mailto:siddhantdembi@gmail.com}{siddhantdembi@gmail.com}
+            }
+            \quad
+            \faPhone\
+            \textcolor{blue}{
+                \href{tel:+918850003687}{+91 8850003687}
+            }
+            \quad
+            \faGithub\
+            \textcolor{blue}{
+                \href{https://github.com/siddhantdembi}{/siddhantdembi}
+            }
+            \quad
+            \faLinkedin\
+            \textcolor{blue}{
+                \href{https://www.linkedin.com/in/siddhantdembi}{/siddhantdembi}
+            }
+            \quad
+            \faTwitter\
+            \textcolor{blue}{
+                \href{https://twitter.com/siddhantdembi}{/siddhantdembi}
+            }
+            \quad
+            \faMapMarker\ Mumbai, India
+
+            \vspace{-10pt}
+        \end{center}
+    }
 }
-}
+
 \vspace{3pt}
 
 %===========================================================
@@ -142,42 +158,41 @@ partopsep=0pt
 
 \sectionbox{EDUCATION}
 
-% \vspace{3pt}
+\vspace{-2pt}
 
-\renewcommand{\arraystretch}{1.35}
-\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.20}
+\setlength{\tabcolsep}{5pt}
 
 \begin{tabularx}{\textwidth}{
-|>{\raggedright\arraybackslash}p{1.65in}
-|>{\raggedright\arraybackslash}X
-|>{\centering\arraybackslash}p{0.60in}
-|>{\centering\arraybackslash}p{0.80in}|
+    |>{\raggedright\arraybackslash}p{2.15in}
+    |>{\raggedright\arraybackslash}X
+    |>{\centering\arraybackslash}p{0.55in}
+    |>{\centering\arraybackslash}p{0.78in}|
 }
-\hline
+    \hline
 
-% \textbf{Course}
-% &
-% \textbf{School / College / University}
-% &
-% \textbf{Year}
-% &
-% \textbf{CGPA / \%}
-% \\
-% \hline
+    \multicolumn{1}{|c|}{\textbf{Course}}
+    &
+    \multicolumn{1}{c|}{\textbf{College / University}}
+    &
+    \textbf{Year}
+    &
+    \textbf{CGPA / \%}
+    \\
+    \hline
 
-Bachelor of Engineering in Information Technology
-&
-Thadomal Shahani Engineering College, University of Mumbai
-&
-2025
-&
-8.09 CGPA
-\\
-\hline
-
+    Bachelor of Engineering in Information Technology
+    &
+    Thadomal Shahani Engineering College, University of Mumbai
+    &
+    2025
+    &
+    8.09 / 10
+    \\
+    \hline
 \end{tabularx}
 
-\vspace{5pt}
+\vspace{4pt}
 
 %===========================================================
 % SKILLS
@@ -191,35 +206,34 @@ Thadomal Shahani Engineering College, University of Mumbai
 \setlength{\tabcolsep}{6pt}
 
 \begin{tabularx}{\textwidth}{
-|>{\raggedright\arraybackslash}p{1.55in}
-|>{\raggedright\arraybackslash}X|
+    |>{\raggedright\arraybackslash}p{1.55in}
+    |>{\raggedright\arraybackslash}X|
 }
-\hline
+    \hline
 
-\textbf{Cloud \& DevOps}
-&
-AWS (EC2, S3, Lambda, DynamoDB, Bedrock), Azure DevOps, Docker, Git, CI/CD, GitHub Actions, Linux, Jenkins, Salesforce, Copado, Scripting, Kubernetes (K3s)
-\\
-\hline
+    \textbf{Cloud \& DevOps}
+    &
+    AWS (EC2, S3, Lambda, DynamoDB, Bedrock, IAM, CloudWatch, API Gateway), Azure DevOps, Docker, Git, CI/CD, GitHub Actions, Linux, Jenkins, Salesforce, Copado, Scripting, Kubernetes
+    \\
+    \hline
 
-\textbf{Infrastructure}
-&
-Prometheus, Grafana, Proxmox, TrueNAS, Cloudflare, WireGuard, Mailcow, Unbound
-\\
-\hline
+    \textbf{Infrastructure}
+    &
+    Prometheus, Grafana, Proxmox, TrueNAS, Cloudflare, WireGuard, Mailcow, Unbound
+    \\
+    \hline
 
-\textbf{AI \& Automation}
-&
-Ollama, OpenWebUI, Hermes Agent, OpenClaw, Local LLMs, N8N, Stable Diffusion
-\\
-\hline
+    \textbf{AI \& Automation}
+    &
+    Ollama, OpenWebUI, Hermes Agent, OpenClaw, Local LLMs, N8N, Stable Diffusion
+    \\
+    \hline
 
-\textbf{Languages}
-&
-Python, JavaScript, TypeScript, SQL, Bash, Shell Scripting, YAML, HTML, CSS
-\\
-\hline
-
+    \textbf{Languages}
+    &
+    Python, JavaScript, TypeScript, SQL, Bash, Shell Scripting, YAML, HTML, CSS
+    \\
+    \hline
 \end{tabularx}
 
 \vspace{5pt}
@@ -237,20 +251,22 @@ Python, JavaScript, TypeScript, SQL, Bash, Shell Scripting, YAML, HTML, CSS
 %-----------------------------------------------------------
 
 \experiencebox
-{DevOps Engineer, Analyst | Deloitte USI, Mumbai | Full-time}
-{Sept'25 -- Present}
+    {DevOps Engineer | Deloitte USI, Mumbai | Full-time}
+    {Sept'25 -- Present}
+
 \vspace{-2pt}
+
 \begin{subbullets}
 
-\item Implemented an \textbf{AWS Bedrock AI agent} using Python and Lambda to analyse \textbf{40+} weekly GitHub PRs and classify their risk levels
+    \item Implemented an \textbf{AWS Bedrock AI agent} using Python and Lambda to analyse \textbf{40+} weekly GitHub PRs and classify their risk levels
 
-\item Built two \textbf{Azure DevOps YAML CI/CD pipelines} for Salesforce validation and deployment using the GitFlow branching strategy
+    \item Built two \textbf{Azure DevOps YAML CI/CD pipelines} for Salesforce validation and deployment using the GitFlow branching strategy
 
-\item Managed \textbf{CI/CD pipelines and Salesforce deployments} using \textbf{Copado}, overseeing release operations across \textbf{12} project pods
+    \item Managed CI/CD pipelines and Salesforce deployments using \textbf{Copado}, overseeing release operations across \textbf{12 project pods}
 
-\item Developed automated \textbf{CI/CD pipelines} connecting \textbf{GitHub Actions and Jira} to auto-create branches upon story status transitions
+    \item Developed automated \textbf{CI/CD pipelines} connecting \textbf{GitHub Actions and Jira} to auto-create branches upon story status transitions
 
-\item Managed daily \textbf{Salesforce delta deployments} using \textbf{Jenkins and Bitbucket}, ensuring consistent and reliable production releases
+    \item Managed daily \textbf{Salesforce delta deployments} using \textbf{Jenkins and Bitbucket}, ensuring consistent and reliable production releases
 
 \end{subbullets}
 
@@ -259,19 +275,23 @@ Python, JavaScript, TypeScript, SQL, Bash, Shell Scripting, YAML, HTML, CSS
 %-----------------------------------------------------------
 % Ford
 %-----------------------------------------------------------
+
 \experiencebox
-{Software Development Engineer | Ford Motor Company, Chennai | Internship}
-{\href{https://car.dembi.xyz}{\textcolor{blue}{[Demo]}} \quad Jun'24 -- Jul'24}
+    {Software Development Engineer | Ford Motor Company, Chennai | Internship}
+    {\href{https://car.dembi.xyz}{\textcolor{blue}{[Demo]}} \quad Jun'24 -- Jul'24}
+
 \vspace{-2pt}
+
 \begin{subbullets}
 
-\item Developed 3D car configurator using \textbf{Three.js and Next.js}, supporting \textbf{450K+ configurations} with responsive UI via TailwindCSS
+    \item Developed 3D car configurator using \textbf{Three.js and Next.js}, supporting \textbf{450K+ configurations} with responsive UI via TailwindCSS
 
-\item Optimized complex 3D models in \textbf{Blender}, ensuring seamless integration and rendering in the interactive web application
+    \item Optimized complex 3D models in \textbf{Blender}, ensuring seamless integration and rendering in the interactive web application
 
-\item Containerized application with \textbf{Docker}, reducing deployment issues by \textbf{40\%} and ensuring consistency across environments
+    \item Containerized application with \textbf{Docker}, reducing deployment issues by \textbf{40\%} and ensuring consistency across environments
 
 \end{subbullets}
+
 \vspace{3pt}
 
 %-----------------------------------------------------------
@@ -279,16 +299,18 @@ Python, JavaScript, TypeScript, SQL, Bash, Shell Scripting, YAML, HTML, CSS
 %-----------------------------------------------------------
 
 \experiencebox
-{Software Development Engineer | Entelligentsia, Pune | Internship}
-{Dec'23 -- Dec'23}
+    {Software Development Engineer | Entelligentsia, Pune | Internship}
+    {Dec'23 -- Dec'23}
+
 \vspace{-2pt}
+
 \begin{subbullets}
 
-\item Created \textbf{5 serverless REST APIs} using \textbf{AWS Lambda} and Python, integrated with \textbf{DynamoDB} for scalable backend services
+    \item Created \textbf{5 serverless REST APIs} using \textbf{AWS Lambda} and Python, integrated with \textbf{DynamoDB} for scalable backend services
 
-\item Set up \textbf{JWT authentication}, used Regex for validation across 5 endpoints, and configured YAML with \textbf{Serverless Framework}
+    \item Set up \textbf{JWT authentication}, used regex for validation across 5 endpoints, and configured YAML with \textbf{Serverless Framework}
 
-\item Ensured \textbf{100\% endpoint coverage} by testing AWS Lambda functions using \textbf{Postman and unit tests}, improving reliability
+    \item Ensured \textbf{100\% endpoint coverage} by testing AWS Lambda functions using \textbf{Postman and unit tests}, improving reliability
 
 \end{subbullets}
 
@@ -299,17 +321,18 @@ Python, JavaScript, TypeScript, SQL, Bash, Shell Scripting, YAML, HTML, CSS
 %-----------------------------------------------------------
 
 \experiencebox
-{Data Analyst | Decimal Point Analytics, Mumbai | Internship}
-{\href{https://streamlit.dembi.xyz}{\textcolor{blue}{[Demo]}} \quad May'23 -- Jul'23}
+    {Data Analyst | Decimal Point Analytics, Mumbai | Internship}
+    {\href{https://streamlit.dembi.xyz}{\textcolor{blue}{[Demo]}} \quad May'23 -- Jul'23}
 
 \vspace{-2pt}
+
 \begin{subbullets}
 
-\item Reduced data preparation time by \textbf{50\%} by developing \textbf{Streamlit applications in Python}, automating repetitive data cleaning tasks
+    \item Reduced data preparation time by \textbf{50\%} by developing \textbf{Streamlit applications in Python}, automating repetitive data cleaning tasks
 
-\item Achieved \textbf{30\% faster CSV and Excel data cleaning} using \textbf{Databricks with PySpark}, improving overall workflow efficiency
+    \item Achieved \textbf{30\% faster CSV and Excel data cleaning} using \textbf{Databricks with PySpark}, improving overall workflow efficiency
 
-\item Obtained technical experience with \textbf{Milvus} by working through documentation and applying concepts to sample datasets
+    \item Obtained technical experience with \textbf{Milvus} by working through documentation and applying concepts to sample datasets
 
 \end{subbullets}
 
@@ -328,19 +351,21 @@ Python, JavaScript, TypeScript, SQL, Bash, Shell Scripting, YAML, HTML, CSS
 %-----------------------------------------------------------
 
 \experiencebox
-{Proxmox Homelab Infrastructure}
-{\href{https://docs.dembi.xyz/homelab/proxmox}{\textcolor{blue}{[Link]}}}
+    {Proxmox Homelab Infrastructure}
+    {\href{https://docs.dembi.xyz/articles/homelab/proxmox}{\textcolor{blue}{[Link]}}}
 {}
+
 \vspace{-2pt}
+
 \begin{subbullets}
 
-\item Built and maintained \textbf{three on-premises server nodes} for self-hosted services, AI experimentation and infrastructure development
+    \item Built and maintained \textbf{three on-premises server nodes} for self-hosted services, AI experimentation and infrastructure development
 
-\item Architected \textbf{100+ containers and 10+ VMs}, and ran a three-node \textbf{Kubernetes cluster using K3s}: one control plane and two workers
+    \item Architected \textbf{100+ containers and 10+ VMs}, and ran a three-node \textbf{Kubernetes cluster using K3s}: one control plane and two workers
 
-\item Leveraged \textbf{Cloudflare Tunnel} as a reverse proxy and managed DNS records through Cloudflare for secure service exposure
+    \item Leveraged \textbf{Cloudflare Tunnel} as a reverse proxy and managed DNS records through Cloudflare for secure service exposure
 
-\item Established \textbf{AdGuard Home with Unbound} for upstream DNS resolution and \textbf{WireGuard VPN} for secure remote network access
+    \item Established \textbf{AdGuard Home with Unbound} for upstream DNS resolution and \textbf{WireGuard VPN} for secure remote network access
 
 \end{subbullets}
 
@@ -351,18 +376,21 @@ Python, JavaScript, TypeScript, SQL, Bash, Shell Scripting, YAML, HTML, CSS
 %-----------------------------------------------------------
 
 \experiencebox
-{Local AI \& LLM Automation Platform}
+    {Local AI \& LLM Automation Platform}
+    {\href{https://docs.dembi.xyz/articles/homelab/local-ai}{\textcolor{blue}{[Link]}}}
 {}
+
 \vspace{-2pt}
+
 \begin{subbullets}
 
-\item Set up a dedicated AI VM with \textbf{GPU passthrough}, running \textbf{Ollama and OpenWebUI} for local inference with open-source LLMs
+    \item Set up a dedicated AI VM with \textbf{GPU passthrough}, running \textbf{Ollama and OpenWebUI} for local inference with open-source LLMs
 
-\item Configured \textbf{Hermes Agent} with local \textbf{Qwen and Gemma MoE models} for autonomous workflows with Telegram integration
+    \item Configured \textbf{Hermes Agent} with local \textbf{Qwen and Gemma MoE models} for autonomous workflows with Telegram integration
 
-\item Used \textbf{Prometheus and Grafana} to monitor GPU memory usage and performance metrics of the dedicated AI VM
+    \item Used \textbf{Prometheus and Grafana} to monitor GPU memory usage and performance metrics of the dedicated AI VM
 
-\item Deployed \textbf{N8N} for workflow automation and \textbf{Stable Diffusion} for experimenting with local image generation
+    \item Deployed \textbf{N8N} for workflow automation and \textbf{Stable Diffusion} for experimenting with local image generation
 
 \end{subbullets}
 
@@ -373,16 +401,19 @@ Python, JavaScript, TypeScript, SQL, Bash, Shell Scripting, YAML, HTML, CSS
 %-----------------------------------------------------------
 
 \experiencebox
-{Infrastructure Monitoring \& Backup System}
+    {Infrastructure Monitoring \& Backup System}
+    {\href{https://docs.dembi.xyz/articles/homelab/monitoring-backup}{\textcolor{blue}{[Link]}}}
 {}
+
 \vspace{-2pt}
+
 \begin{subbullets}
 
-\item Implemented a \textbf{3-2-1 backup strategy} with daily scheduled snapshots for VMs and data, ensuring data integrity and recovery
+    \item Implemented a \textbf{3-2-1 backup strategy} with daily scheduled snapshots for VMs and data, ensuring data integrity and recovery
 
-\item Centralized VM resource monitoring through \textbf{Beszel} with \textbf{SMTP alerts via a local mail server} for disk-space thresholds
+    \item Centralized VM resource monitoring through \textbf{Beszel} with \textbf{SMTP alerts via a local mail server} for disk-space thresholds
 
-\item Monitored real-time resource utilization, processes and system activity across individual virtual machines using \textbf{Glances}
+    \item Monitored real-time resource utilization, processes and system activity across individual virtual machines using \textbf{Glances}
 
 \end{subbullets}
 
